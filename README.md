@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# 项目环境要求
+## 运行环境版本
+- Node.js 版本：`v24.11.1`
+- npm 版本：`11.6.2`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 版本验证方法
+执行以下命令检查本地版本是否符合要求：
+```bash
+# 检查 Node.js 版本
+node -v
+# 检查 npm 版本
+npm -v
 
-Currently, two official plugins are available:
+## 核心目录/文件说明
+| 目录/文件          | 核心作用                                                                 |
+|--------------------|--------------------------------------------------------------------------|
+| `public/`          | 存放无需构建工具处理的静态资源，打包时会原封不动复制到输出目录           |
+| `src/assets/`      | 存放需要被构建工具（Vite/Webpack）解析的静态资源（如图片、样式），支持模块化导入 |
+| `src/components/`  | 存放可复用的通用组件，按「功能/类型」拆分文件夹，组件名遵循 PascalCase 规范 |
+| `src/pages/`       | 存放页面级组件，每个页面独立文件夹，内部可包含专属子组件/Hooks/样式       |
+| `src/router/`      | 集中管理路由配置，抽离路由守卫、路由列表，便于权限控制和路由扩展         |
+| `src/hooks/`       | 存放全局自定义 Hooks，复用业务逻辑（如请求、状态处理）                   |
+| `src/utils/`       | 存放通用工具函数，避免重复代码（如请求封装、数据格式化、本地存储）       |
+| `src/services/`    | 抽离接口请求，按业务模块拆分，便于接口管理和 Mock 数据替换               |
+| `src/context/`       | 状态管理目录               |
+| `src/types/`       | TypeScript 类型声明目录，统一管理接口类型、全局类型，提升类型提示       |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 命名规范（重要）
+1. **组件文件**：组件名使用 PascalCase（大驼峰），如 `UserCard.tsx`；
+2. **工具函数/普通文件**：使用 camelCase（小驼峰），如 `formatTime.ts`；
+3. **目录名**：使用 kebab-case（短横线），如 `user-center/`；
+4. **全局常量**：使用 UPPER_CASE（大写下划线），如 `API_BASE_URL`。

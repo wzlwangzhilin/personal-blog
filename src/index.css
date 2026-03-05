@@ -1,68 +1,75 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
+/* 1. 全局盒模型归一化 */
+*,
+*::before,
+*::after {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
+  box-sizing: border-box; /* 宽高包含边框和内边距 */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 2. 清除列表默认样式 */
+ul,
+ol {
+  list-style: none;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* 3. 清除链接默认样式 */
+a {
+  text-decoration: none;
+  color: inherit; /* 继承父元素颜色 */
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* 4. 清除按钮/输入框默认样式 */
+button,
+input,
+textarea,
+select {
+  font: inherit; /* 继承全局字体 */
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* 5. 图片自适应 */
+img {
+  display: block; /* 消除图片底部空白 */
+}
+
+/* 6. 表格边框合并 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 7. 全局字体/行高归一化 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5; /* 行高适配阅读 */
+  color: #333; /* 基础文字颜色 */
+  background-color: #fff; /* 基础背景色 */
+  -webkit-font-smoothing: antialiased; /* 字体抗锯齿（移动端） */
+}
+
+/* 8. 清除浮动（兼容旧代码） */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* 9. 禁用文本选中（可选，根据业务需求） */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 10. 清除输入框默认样式（移动端） */
+input::-webkit-input-placeholder {
+  color: #999;
+}
+input:-moz-placeholder {
+  color: #999;
 }
