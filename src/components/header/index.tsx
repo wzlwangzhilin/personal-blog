@@ -1,7 +1,6 @@
 import { MenuFoldOutlined, MenuUnfoldOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Form, Input, Layout } from 'antd';
 import logo from '@/assets/logo.jpg';
-import { useState } from 'react';
 import { useGlobalContext } from '@/context/GlobalContext';
 
 const FormItem = Form.Item;

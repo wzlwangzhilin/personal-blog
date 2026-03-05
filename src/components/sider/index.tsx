@@ -1,4 +1,4 @@
-import { Flex, Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import { useGlobalContext } from '@/context/GlobalContext';
 import { BookOutlined } from '@ant-design/icons';
